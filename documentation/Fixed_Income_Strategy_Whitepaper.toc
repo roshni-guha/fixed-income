@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Methodology}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Signal Generation: Blended Momentum (BMOM)}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Strategy 1: Cross-Asset Momentum with Benchmark Filter}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Strategy 2: Drawdown Differential Override}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Proportional Linear Allocation}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Weight Calculation Process}{9}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Portfolio Constraints}{9}{subsubsection.2.4.2}%
+\contentsline {section}{\numberline {3}Implementation: Monthly Rebalancing Strategy}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Rebalancing Framework}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Risk-Triggered Rebalancing}{10}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Results and Performance}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Strategy Evolution Performance}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Final Strategy Metrics}{11}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion}{13}{section.5}%
