@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.29)  8 MAR 2026 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.29)  10 MAR 2026 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -538,12 +538,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [4]
-<PDFs/fig_bmom_timeseries.pdf, id=108, 1726.04407pt x 1076.50508pt>
-File: PDFs/fig_bmom_timeseries.pdf Graphic file (type pdf)
-<use PDFs/fig_bmom_timeseries.pdf>
-Package pdftex.def Info: PDFs/fig_bmom_timeseries.pdf  used on input line 139.
-(pdftex.def)             Requested size: 469.75502pt x 292.97633pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -551,7 +545,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5 <./PDFs/fig_bmom_timeseries.pdf>]
+[5]
+<../PDFs/fig_bmom_timeseries.pdf, id=115, 1004.21487pt x 858.64478pt>
+File: ../PDFs/fig_bmom_timeseries.pdf Graphic file (type pdf)
+<use ../PDFs/fig_bmom_timeseries.pdf>
+Package pdftex.def Info: ../PDFs/fig_bmom_timeseries.pdf  used on input line 17
+0.
+(pdftex.def)             Requested size: 469.75502pt x 401.66333pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -567,8 +568,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7]
-Overfull \hbox (5.55142pt too wide) in paragraph at lines 224--225
+[7 <../PDFs/fig_bmom_timeseries.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9]
+Overfull \hbox (5.55142pt too wide) in paragraph at lines 233--234
 []\OT1/cmr/bx/n/10.95 G5O2\OT1/cmr/m/n/10.95 : No change (Sharpe re-mained at $
 \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10
 .95 14$), in-di-cat-ing rare over-ride ac-ti-va-tion for duration-
@@ -581,12 +598,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8]
-<PDFs/fig_equity_curves_strat2.pdf, id=222, 1726.84589pt x 715.5704pt>
-File: PDFs/fig_equity_curves_strat2.pdf Graphic file (type pdf)
-<use PDFs/fig_equity_curves_strat2.pdf>
-Package pdftex.def Info: PDFs/fig_equity_curves_strat2.pdf  used on input line 
-281.
+[10]
+<../PDFs/fig_equity_curves_strat2.pdf, id=224, 1726.84589pt x 715.5704pt>
+File: ../PDFs/fig_equity_curves_strat2.pdf Graphic file (type pdf)
+<use ../PDFs/fig_equity_curves_strat2.pdf>
+Package pdftex.def Info: ../PDFs/fig_equity_curves_strat2.pdf  used on input li
+ne 290.
 (pdftex.def)             Requested size: 469.75502pt x 194.65878pt.
 
 
@@ -596,33 +613,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[10 <./PDFs/fig_equity_curves_strat2.pdf>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [11]
-Overfull \hbox (2.70764pt too wide) in paragraph at lines 352--353
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[12 <../PDFs/fig_equity_curves_strat2.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[13]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[14]
+Overfull \hbox (2.70764pt too wide) in paragraph at lines 363--364
 []\OT1/cmr/m/n/10.95 The risk-triggered re-bal-anc-ing mech-a-nism pre-served s
 ome tac-ti-cal re-spon-sive-ness within the monthly
  []
 
-<PDFs/Regentfund Monthly Equity Curve.png, id=322, 1003.8303pt x 570.933pt>
-File: PDFs/Regentfund Monthly Equity Curve.png Graphic file (type png)
-<use PDFs/Regentfund Monthly Equity Curve.png>
-Package pdftex.def Info: PDFs/Regentfund Monthly Equity Curve.png  used on inpu
-t line 358.
+<../PDFs/Regentfund_Equity_Curve.png, id=329, 1003.8303pt x 570.933pt>
+File: ../PDFs/Regentfund_Equity_Curve.png Graphic file (type png)
+<use ../PDFs/Regentfund_Equity_Curve.png>
+Package pdftex.def Info: ../PDFs/Regentfund_Equity_Curve.png  used on input lin
+e 369.
 (pdftex.def)             Requested size: 469.75502pt x 267.17117pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -631,7 +656,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12]
+[15 <../PDFs/Regentfund_Equity_Curve.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -639,31 +664,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[13 <./PDFs/Regentfund Monthly Equity Curve.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[14] (Fixed_Income_Strategy_Whitepaper.aux)
+[16] (Fixed_Income_Strategy_Whitepaper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `Fixed_Income_Strategy_Whitepaper.out' has no
 t changed.
 (rerunfilecheck)             Checksum: 7A2B2D1C98AD3A291B93DD7F4FE2C251;2977.
  ) 
 Here is how much of TeX's memory you used:
- 12491 strings out of 474486
- 200087 string characters out of 5743754
+ 12493 strings out of 474486
+ 200206 string characters out of 5743754
  1935542 words of memory out of 5000000
  34569 multiletter control sequences out of 15000+600000
  567536 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1551b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,1551b,533s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nimas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1095.pk><C:/Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -677,10 +698,10 @@ imas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
 Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><C:/Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmti12.pfb>
-Output written on Fixed_Income_Strategy_Whitepaper.pdf (15 pages, 824928 bytes)
+Output written on Fixed_Income_Strategy_Whitepaper.pdf (17 pages, 894532 bytes)
 .
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

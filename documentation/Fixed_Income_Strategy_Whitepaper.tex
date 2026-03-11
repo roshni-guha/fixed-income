@@ -68,7 +68,7 @@
 
 % Abstract
 \begin{abstract}
-This whitepaper presents a momentum-based tactical asset allocation framework for the Regentfund Fixed Income Portfolio, allocating across high yield (H5A4), investment grade (C5A0), and government bonds (G5O2). The strategy employs blended momentum (BMOM) signals combining 20, 60, 120, and 240-day lookbacks, with 70\% weight on intermediate horizons aligned to credit cycle frequencies. Strategy 1 generates binary long/flat signals through cross-asset benchmark filtering and 240-day trend confirmation, achieving asset-level Sharpe ratios of 0.18--0.28. Strategy 2 introduces a drawdown differential override that locks positions long when tactical signals outperform buy-and-hold by more than 10 percentage points, improving C5A0 performance by 61\% (Sharpe 0.18 to 0.29). Proportional linear allocation weights assets by momentum strength subject to a 12\% high yield cap and 5\% minimum positions, with defensive positioning (10\% cash, 90\% government) when all signals turn flat. The final Monthly Strategy adapts the framework to Regentfund's monthly trading constraint through dual-trigger rebalancing: scheduled monthly execution plus risk-triggered overrides when any signal exits. The implementable strategy achieves a 0.25 Sharpe ratio with 0.74\% annualized return and $-11.99\%$ maximum drawdown, providing systematic tactical allocation with explicit risk management while meeting institutional operational requirements.
+This whitepaper presents a momentum-based tactical asset allocation framework for the Regentfund Fixed Income Portfolio, allocating across high yield (H5A4), investment grade (C5A0), and government bonds (G5O2). The strategy employs blended momentum (BMOM) signals combining 20, 60, 120, and 240-day lookbacks, with 70\% weight on intermediate horizons aligned to credit cycle frequencies. Strategy 1 generates binary long/flat signals through cross-asset benchmark filtering and 240-day trend confirmation, achieving asset-level Sharpe ratios of 0.18--0.28. Strategy 2 introduces a drawdown differential override that locks positions long when tactical signals outperform buy-and-hold by more than 10 percentage points, improving C5A0 performance by 61\% (Sharpe 0.18 to 0.29). Proportional linear allocation weights assets by momentum strength subject to a 12\% high yield cap and 5\% minimum positions, with defensive positioning (10\% cash, 90\% government) when all signals turn flat. The final Monthly Strategy adapts the framework to Regentfund's monthly trading constraint through dual-trigger rebalancing: scheduled monthly execution plus risk-triggered overrides when any signal exits. The implementable strategy achieves a 0.26 Sharpe ratio with 0.77\% annualized return and $-11.99\%$ maximum drawdown, providing systematic tactical allocation with explicit risk management while meeting institutional operational requirements.
 \end{abstract}
 
 \newpage
@@ -84,9 +84,9 @@ Fixed income markets exhibit time-varying risk premia that can be systematically
 
 The strategy allocates across three primary fixed income asset classes:
 \begin{itemize}
-    \item \textbf{H5A4 (High Yield)}: Represented by HYG, providing exposure to corporate high-yield bonds with higher credit risk and return potential
-    \item \textbf{C5A0 (Investment Grade)}: Represented by LQD, offering investment-grade corporate bond exposure with moderate credit risk
-    \item \textbf{G5O2 (Government Bonds)}: Represented by TLT, providing long-duration Treasury exposure as a defensive anchor
+    \item \textbf{H5A4 (High Yield)}: ICE BofA US High Yield Index tracking U.S. dollar-denominated, non-investment-grade corporate bonds with higher credit risk and return potential
+    \item \textbf{C5A0 (Investment Grade)}: ICE BofA US Investment Grade Corporate Index tracking investment-grade rated corporate debt with moderate credit risk
+    \item \textbf{G5O2 (Government)}: ICE BofA US Treasury Index tracking fixed-rate U.S. Treasury bonds as a defensive anchor
     \item \textbf{Cash}: Maintained as a buffer (5--10\%) depending on market conditions
 \end{itemize}
 
@@ -120,6 +120,7 @@ This whitepaper documents the research process that led to the final Monthly Reb
 
 The following sections detail each component's methodology, implementation logic, and performance characteristics.
 
+\newpage
 \section{Methodology}
 
 \subsection{Signal Generation: Blended Momentum (BMOM)}
@@ -134,24 +135,17 @@ where $\text{Mom}_{i,n}$ represents the $n$-day momentum for asset $i$.
 
 The asymmetric weighting scheme reflects the distinct dynamics captured by each lookback period. The 60-day and 120-day lookbacks receive the highest combined weight (70\%) as these horizons align with typical credit cycle frequencies and capture the gradual widening or tightening of credit spreads as economic conditions evolve. The 20-day lookback (15\% weight) provides tactical responsiveness to recent price action, while the 240-day lookback (15\% weight) serves as a regime confirmation signal, ensuring alignment with longer-term interest rate trends. This weighting structure balances responsiveness to changing market conditions with stability, avoiding overreaction to short-term noise while remaining sensitive to persistent credit and duration dynamics.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{PDFs/fig_bmom_timeseries.pdf}
-    \caption{BMOM indicators for fixed income assets over time, showing the evolution of blended momentum signals across market cycles.}
-    \label{fig:bmom_timeseries}
-\end{figure}
-
 \subsection{Strategy 1: Cross-Asset Momentum with Benchmark Filter}
 
-Strategy 1 generates binary signals (long or flat) for each asset independently by combining asset-level BMOM with cross-asset benchmark filtering. This approach identifies periods when both an asset and its relevant benchmark exhibit weakening momentum, indicating broader market stress rather than asset-specific volatility.
+Strategy 1 generates binary signals (long or flat) for each asset independently by combining asset-level BMOM with cross-asset benchmark filtering. This approach uses equity market momentum (SPY) as a universal benchmark filter, exploiting the equity-credit lead-lag relationship to identify periods of systemic risk-off sentiment.
 
 \textbf{Benchmark Pairing}
 
-Each fixed income asset is paired with a benchmark that captures its primary risk factor:
+All three fixed income assets use SPY (equity market) as the universal benchmark for cross-asset momentum confirmation:
 \begin{itemize}
-    \item \textbf{H5A4 (High Yield)} $\rightarrow$ SPY: High yield bonds are sensitive to equity risk sentiment and economic growth expectations
-    \item \textbf{C5A0 (Investment Grade)} $\rightarrow$ LQD: Investment grade credit reflects broader corporate credit conditions
-    \item \textbf{G5O2 (Government)} $\rightarrow$ TLT: Long-duration Treasuries serve as their own benchmark for interest rate regime changes
+    \item \textbf{H5A4 (High Yield)} $\rightarrow$ SPY
+    \item \textbf{C5A0 (Investment Grade)} $\rightarrow$ SPY
+    \item \textbf{G5O2 (Government)} $\rightarrow$ SPY
 \end{itemize}
 
 \textbf{Signal Logic}
@@ -171,9 +165,24 @@ Exit if: $(C_1 \lor C_2) \land \text{Mom}_{240} < 0$
 
 \textbf{Hold:} If neither exit nor entry conditions are met, the strategy maintains its previous signal state.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../PDFs/fig_bmom_timeseries.pdf}
+    \caption{BMOM indicators for fixed income assets over time with SPY benchmark overlay. Each panel shows the asset-level BMOM (H5A4, C5A0, G5O2) alongside SPY BMOM, demonstrating the cross-asset momentum filtering framework. Horizontal lines indicate entry threshold (0) and exit threshold ($-0.03$).}
+    \label{fig:bmom_timeseries}
+\end{figure}
+
 \textbf{Rationale}
 
-The cross-below detection mechanism (rather than static threshold evaluation) identifies momentum deterioration in real time. Requiring dual weakness (both asset and benchmark below threshold) filters out idiosyncratic moves and confirms broader risk-off conditions. The uniform $-0.03$ threshold provides a consistent definition of momentum weakness across all assets, while the asset-specific benchmarks ensure that exit signals reflect relevant market dynamics for each credit and duration exposure.
+Figure 1 reveals a critical pattern: the largest drawdowns in fixed income assets consistently overlap with periods of SPY BMOM deterioration. The 2008 financial crisis, 2020 COVID selloff, and 2022 interest rate shock all exhibit simultaneous weakness across both the fixed income assets and SPY, confirming that systemic drawdowns manifest as dual deterioration rather than isolated asset-class stress. This observation validates the dual-weakness filter as a systemic risk detector. When both asset and benchmark BMOMs cross below the threshold, the strategy exits during the confirmation phase of broad market stress, before drawdowns fully develop. Conversely, periods when fixed income BMOM weakens while SPY remains resilient typically represent idiosyncratic volatility, technical supply-demand imbalances, or sector-specific events that do not warrant defensive positioning. By requiring cross-asset confirmation, the strategy systematically avoids the most severe drawdowns while maintaining exposure during isolated volatility.
+
+The use of SPY as a universal benchmark exploits the equity-credit lead-lag relationship observed in financial markets. Equity markets are highly liquid and rapidly incorporate information about corporate fundamentals and macroeconomic conditions. Credit markets, particularly corporate bonds, trade less frequently and can exhibit delayed price adjustment due to lower liquidity, institutional constraints, and over-the-counter market structure. This creates an informational advantage: equity weakness often precedes credit spread widening by hours or days.
+
+For credit-sensitive assets (H5A4 and C5A0), requiring dual weakness (both asset BMOM and SPY BMOM below threshold) captures deteriorating conditions while they are still developing. When SPY crosses below the $-0.03$ threshold, it signals declining corporate health or risk appetite that should eventually manifest in wider credit spreads. If the fixed income asset's BMOM is also weak, this confirms the credit market is beginning to reflect the same stress. The strategy exits during this confirmation phase, using SPY's leading signal rather than waiting for credit prices to fully adjust.
+
+For government bonds (G5O2), the dual requirement filters for rare periods of simultaneous equity and Treasury weakness. While Treasuries typically benefit from flight-to-quality flows during equity sell-offs, periods when both SPY and G5O2 show momentum deterioration indicate systemic stress conditions (such as rising rate regimes, stagflation concerns, or broad deleveraging) that warrant defensive positioning.
+
+The cross-below detection mechanism (rather than static threshold evaluation) identifies momentum deterioration in real time. The uniform $-0.03$ threshold provides a consistent definition of momentum weakness across all assets, creating a unified framework for risk-off detection across the fixed income portfolio.
 
 \subsection{Strategy 2: Drawdown Differential Override}
 
@@ -278,11 +287,12 @@ The proportional linear approach outperformed alternative allocation schemes by 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{PDFs/fig_equity_curves_strat2.pdf}
+    \includegraphics[width=\textwidth]{../PDFs/fig_equity_curves_strat2.pdf}
     \caption{Equity curve comparison across allocation methodologies (Proportional Linear, Equal Weight, Regime-Based), demonstrating the superior risk-adjusted performance of the proportional linear approach.}
     \label{fig:allocation_comparison}
 \end{figure}
 
+\newpage
 \section{Implementation: Monthly Rebalancing Strategy}
 
 \subsection{Rebalancing Framework}
@@ -301,6 +311,7 @@ Given the monthly trading constraint, the strategy implements a dual-trigger app
 
 Between rebalancing events, portfolio weights remain at their most recently calculated allocation and drift with market movements. The risk-triggered override addresses the primary limitation of monthly rebalancing by allowing immediate portfolio adjustment when Strategy 1's exit conditions (cross-below + Mom$_{240}$ < 0) are met for any asset. This preserves the tactical risk management capabilities demonstrated in Strategy 2's asset-level results while respecting Regentfund's monthly trading schedule.
 
+\newpage
 \section{Results and Performance}
 
 \subsection{Strategy Evolution Performance}
@@ -333,13 +344,13 @@ Transitioning from asset-level signals to portfolio construction introduced prop
 \toprule
 Metric & Strategy 3 & Monthly Strategy \\
 \midrule
-Annualized Return & 1.21\% & 0.74\% \\
-Annualized Volatility & 2.68\% & 2.96\% \\
-Sharpe Ratio & 0.45 & 0.25 \\
+Annualized Return & 1.07\% & 0.77\% \\
+Annualized Volatility & 2.95\% & 2.97\% \\
+Sharpe Ratio & 0.36 & 0.26 \\
 Max Drawdown & $-11.71\%$ & $-11.99\%$ \\
-Win Rate & 42.57\% & 50.79\% \\
-Rebalance Days & 587 & 325 \\
-Trades per Month & 1.75 & 0.97 \\
+Win Rate & 50.83\% & 51.05\% \\
+Rebalance Days & 939 & 602 \\
+Trades per Month & 2.79 & 1.79 \\
 \bottomrule
 \end{tabular}
 \caption{Portfolio-level performance comparison}
@@ -347,19 +358,20 @@ Trades per Month & 1.75 & 0.97 \\
 
 \textbf{Implementation Trade-offs}
 
-Strategy 3's daily monitoring with turnover filtering achieved superior risk-adjusted returns (Sharpe 0.45) by rebalancing approximately 1.75 times per month when momentum signals or constraint violations warranted adjustment. The Monthly Strategy, constrained by Regentfund's operational requirement of monthly execution, reduced trading frequency to 0.97 times per month, resulting in lower performance (Sharpe 0.25) but meeting institutional implementation requirements.
+Strategy 3's daily monitoring with turnover filtering achieved superior risk-adjusted returns (Sharpe 0.36) by rebalancing approximately 2.79 times per month when momentum signals or constraint violations warranted adjustment. The Monthly Strategy, constrained by Regentfund's operational requirement of monthly execution, reduced trading frequency to 1.79 times per month, resulting in lower performance (Sharpe 0.26) but meeting institutional implementation requirements.
 
-The risk-triggered rebalancing mechanism preserved some tactical responsiveness within the monthly constraint: the 0.97 trades per month (slightly below 1.0) reflects scheduled monthly rebalances plus occasional mid-month defensive repositioning when asset signals turned flat. The higher win rate in the Monthly Strategy (50.79\% vs 42.57\%) suggests that reduced rebalancing frequency led to fewer tactical adjustments but potentially avoided some whipsaw trades.
+The risk-triggered rebalancing mechanism preserved some tactical responsiveness within the monthly constraint: the 1.79 trades per month reflects scheduled monthly rebalances plus occasional mid-month defensive repositioning when asset signals turned flat. The similar win rates between strategies (51.05\% vs 50.83\%) suggests that reduced rebalancing frequency maintained tactical effectiveness while potentially avoiding some whipsaw trades.
 
 The final Monthly Strategy represents the implementable version of the framework, sacrificing some performance for operational feasibility while maintaining the core tactical allocation logic through risk-triggered overrides.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{PDFs/Regentfund Monthly Equity Curve.png}
+    \includegraphics[width=\textwidth]{../PDFs/Regentfund_Equity_Curve.png}
     \caption{Equity curve comparison showing Strategy 3, Monthly Strategy, and Regentfund's baseline static allocation (66.5\% IG, 9.5\% HY, 19.5\% Gov, 5\% Cash) over the full sample period. Both tactical strategies substantially outperform the static benchmark, with the Monthly Strategy delivering consistent returns while respecting operational trading constraints.}
     \label{fig:final_equity_curve}
 \end{figure}
 
+\newpage
 \section{Conclusion}
 
 This whitepaper presents a comprehensive tactical asset allocation framework designed specifically for the Regentfund Fixed Income Portfolio. The Monthly Strategy delivers a ready-to-implement solution that respects operational constraints (monthly trading schedule, 12\% high yield cap) while maintaining tactical risk management capabilities through momentum-based signal generation and risk-triggered rebalancing.
@@ -368,7 +380,7 @@ The research process identified Strategy 2's drawdown differential override as t
 
 The framework's risk management approach combines multiple defensive layers: cross-asset benchmark filtering identifies broad market stress rather than idiosyncratic volatility, the Mom$_{240}$ filter prevents exits during temporary pullbacks within long-term uptrends, and dual-trigger rebalancing preserves tactical responsiveness within monthly operational constraints. When all signals turn flat, the strategy shifts to explicit defensive positioning (10\% cash, 90\% government bonds), providing systematic tail risk management.
 
-The Monthly Strategy achieves a 0.25 Sharpe ratio with 0.74\% annualized return and $-11.99\%$ maximum drawdown while executing approximately one trade per month. The performance gap relative to Strategy 3 (0.45 Sharpe, 1.21\% return) reflects Regentfund's monthly trading constraint rather than framework design limitations. The risk-triggered rebalancing mechanism successfully preserves defensive capabilities, allowing immediate repositioning when Strategy 1 exit conditions are met for any asset.
+The Monthly Strategy achieves a 0.26 Sharpe ratio with 0.77\% annualized return and $-11.99\%$ maximum drawdown while executing approximately 1.79 trades per month. The performance gap relative to Strategy 3 (0.36 Sharpe, 1.07\% return) reflects Regentfund's monthly trading constraint rather than framework design limitations. The risk-triggered rebalancing mechanism successfully preserves defensive capabilities, allowing immediate repositioning when Strategy 1 exit conditions are met for any asset.
 
 Future research could enhance the framework through two directions: (1) lasso regression to optimize the monthly rebalancing logic by selecting the most predictive momentum features and reducing overfitting risk, and (2) machine learning-based regime classification to improve the identification of market states (risk-on, defensive, crisis) and enable more nuanced allocation adjustments across regimes.
 
