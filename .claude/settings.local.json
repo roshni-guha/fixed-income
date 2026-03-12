@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git pull:*)",
       "Bash(python -c \"\nimport pandas as pd\nimport numpy as np\nimport sys\nsys.path.insert\\(0, ''.''\\)\n\n# Run the notebook''s strat 3 and monthly strat code to get metrics\nexec\\(open\\(''strategies.ipynb''\\).read\\(\\).replace\\(''\\\\n'', ''\\\\n''\\) if False else ''''\\)\n\n# Just print what we know from the visible output\nprint\\(''Strategy 1 H5A4 metrics:''\\)\nprint\\(''Annualized Return: 0.0087''\\)\nprint\\(''Annualized Volatility: 0.036''\\)\nprint\\(''Sharpe Ratio: 0.24''\\)\nprint\\(\\)\nprint\\(''Strategy 2 H5A4 metrics:''\\)\nprint\\(''Annualized Return: 0.012''\\)\nprint\\(''Annualized Volatility: 0.044''\\)\nprint\\(''Sharpe Ratio: 0.28''\\)\n\")",
-      "Bash(pdflatex:*)"
+      "Bash(pdflatex:*)",
+      "Bash(ls:*)"
     ]
   }
 }
