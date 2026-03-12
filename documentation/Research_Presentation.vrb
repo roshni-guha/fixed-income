@@ -1,0 +1,20 @@
+\frametitle{Appendix C: Strategy 2 State Machine}
+\small
+\begin{algorithmic}[1]
+\STATE \textbf{Input:} Strategy 1 signals $s_1(t)$, drawdown differential $\text{DD}_{\text{diff}}(t)$
+\STATE \textbf{Initialize:} $\text{regime\_id} = 0$, $s_2(t) = s_1(t)$
+\FOR{$t = 1$ to $T$}
+    \IF{$\text{DD}_{\text{diff}}(t) > 0.10 \land \text{DD}_{\text{diff}}(t-1) \leq 0.10$}
+        \STATE $\text{regime\_id} \leftarrow \text{regime\_id} + 1$ \quad \textit{// New override regime}
+    \ENDIF
+    \IF{$\text{regime\_id} > 0$}
+        \STATE $s_2(t) \leftarrow 1$ \quad \textit{// Override: force long}
+        \IF{$s_1(t) = 1$}
+            \STATE $\text{regime\_id} \leftarrow 0$ \quad \textit{// Strategic exit: end override}
+        \ENDIF
+    \ELSE
+        \STATE $s_2(t) \leftarrow s_1(t)$ \quad \textit{// Follow Strategy 1}
+    \ENDIF
+\ENDFOR
+\STATE \textbf{Output:} Strategy 2 signals $s_2(t) \in \{0,1\}^T$
+\end{algorithmic}
