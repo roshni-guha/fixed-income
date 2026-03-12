@@ -311,6 +311,17 @@ $$w_i^{\text{raw}} = \frac{\text{Score}_i}{\sum_j \text{Score}_j} \times 0.95 \q
 \end{enumerate}
 \end{frame}
 
+\begin{frame}{Why Proportional Linear Allocation?}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{../PDFs/fig_equity_curves_strat2.pdf}
+\end{center}
+
+\vspace{0.2cm}
+
+\small
+Comparison of allocation framework performance across the full sample period. The proportional linear allocation method (Strategy 3) demonstrated superior risk-adjusted returns compared to alternative allocation frameworks tested, while maintaining implementable portfolio constraints and preserving the tactical signal logic from Strategy 2.
+\end{frame}
+
 \section{Implementation: Monthly Rebalancing Strategy}
 
 \begin{frame}{Monthly Rebalancing Framework}
@@ -340,6 +351,40 @@ $$w_i^{\text{raw}} = \frac{\text{Score}_i}{\sum_j \text{Score}_j} \times 0.95 \q
 \vspace{0.2cm}
 
 Between rebalancing events, portfolio weights drift with market movements
+\end{frame}
+
+\begin{frame}{Monthly Strategy Performance}
+\begin{columns}[c]
+\column{0.6\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{../PDFs/Regentfund_Equity_Curve.png}
+\end{center}
+
+\column{0.38\textwidth}
+\textbf{Monthly Strategy Metrics:}
+
+\vspace{0.2cm}
+
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Annualized Return & 0.77\% \\
+Annualized Vol & 2.97\% \\
+Sharpe Ratio & 0.26 \\
+Max Drawdown & $-11.99\%$ \\
+Win Rate & 51.05\% \\
+Rebalance Days & 602 \\
+Trades/Month & 1.79 \\
+\bottomrule
+\end{tabular}
+\end{columns}
+
+\vspace{0.2cm}
+
+\small
+Both Strategy 3 and Monthly Strategy substantially outperform the static benchmark across the full sample period, with Monthly Strategy delivering consistent returns while respecting operational trading constraints.
 \end{frame}
 
 \section{Results and Performance}
@@ -383,17 +428,6 @@ Strategy 3 (Daily) & 1.07\% & 0.36 & $-11.71\%$ & 2.79 \\
 The Monthly Strategy represents the implementable version, sacrificing some performance for operational feasibility while maintaining core tactical allocation logic through risk-triggered overrides
 \end{frame}
 
-\begin{frame}{Crisis Navigation}
-\begin{center}
-\includegraphics[width=0.75\textwidth]{../PDFs/fig_equity_curves_strat2.pdf}
-\end{center}
-
-\vspace{0.2cm}
-
-\small
-The framework successfully navigated major market stress events: 2008 financial crisis, 2020 COVID-19 selloff, and 2022 interest rate shock. Both Strategy 3 and Monthly Strategy substantially outperform the static benchmark, with the Monthly Strategy delivering consistent returns while respecting operational trading constraints.
-\end{frame}
-
 \section{Conclusion}
 
 \begin{frame}{Conclusion}
@@ -401,7 +435,7 @@ The framework successfully navigated major market stress events: 2008 financial 
 
 \vspace{0.4cm}
 
-\textbf{Critical Innovation:} Strategy 2's drawdown differential override was the key breakthrough, particularly for credit-sensitive assets. Rather than simply avoiding losses, the override capitalizes on periods when tactical signals demonstrably outperform passive exposure, forcing positions to remain long until the underlying momentum logic confirms exit timing. This state machine architecture achieved a 61\% Sharpe improvement for C5A0 (investment grade credit).
+\textbf{Key Observation:} Much of Strategy 3's predictive power derives from risk reduction and the drawdown differential override mechanism rather than pure directional signals.
 
 \vspace{0.4cm}
 
@@ -411,6 +445,7 @@ The framework successfully navigated major market stress events: 2008 financial 
     \item 1.79 trades per month (scheduled monthly rebalances + risk-triggered overrides)
     \item Exceeds benchmark by $\geq$10 basis points annualized
     \item Systematic risk management: cross-asset benchmark filtering identifies broad market stress, Mom240 filter prevents exits during temporary pullbacks, dual-trigger rebalancing preserves tactical responsiveness within monthly constraints
+    \item The framework successfully navigated major market stress events including the 2008 financial crisis, 2020 COVID-19 selloff, and 2022 interest rate shock
 \end{itemize}
 \end{frame}
 

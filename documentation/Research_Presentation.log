@@ -1,9 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.29)  12 MAR 2026 11:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.29)  12 MAR 2026 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./Research_Presentation.tex
-(Research_Presentation.tex
+**"C:/Users/nimas/Regentfund Repository/fixed-income/documentation/Research_Pre
+sentation.tex"
+
+(C:/Users/nimas/Regentfund Repository/fixed-income/documentation/Research_Prese
+ntation.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\nimas\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamer.cls
@@ -902,7 +905,9 @@ tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count355
 \l__pdf_internal_box=\box83
-) (Research_Presentation.aux)
+)
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.aux)
 \openout1 = `Research_Presentation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -985,7 +990,11 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 24.
- (Research_Presentation.out) (Research_Presentation.out)
+
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.out)
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.out)
 \@outlinefile=\write5
 \openout5 = `Research_Presentation.out'.
 
@@ -1065,11 +1074,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 (C:\Users\nimas\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-t
 heorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (Research_Presentation.nav) [1
+)
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.nav) [1
 
-{C:/Users/nimas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Research_Pr
-esentation.toc)
-[2
+{C:/Users/nimas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.toc) [2
 
 ] [3
 
@@ -1116,7 +1127,8 @@ Overfull \vbox (9.39632pt too high) detected at line 214
 
 [9
 
- <../PDFs/fig_bmom_timeseries.pdf>] [10
+ <C:/Users/nimas/Regentfund Repository/fixed-income/PDFs/fig_bmom_timeseries.pd
+f>] [10
 
 ] [11
 
@@ -1124,57 +1136,71 @@ Overfull \vbox (9.39632pt too high) detected at line 214
 
 ] [13
 
-] [14
+]
+<../PDFs/fig_equity_curves_strat2.pdf, id=230, 1726.84589pt x 715.5704pt>
+File: ../PDFs/fig_equity_curves_strat2.pdf Graphic file (type pdf)
+<use ../PDFs/fig_equity_curves_strat2.pdf>
+Package pdftex.def Info: ../PDFs/fig_equity_curves_strat2.pdf  used on input li
+ne 323.
+(pdftex.def)             Requested size: 326.43303pt x 135.26099pt.
+ [14
+
+ <C:/Users/nimas/Regentfund Repository/fixed-income/PDFs/fig_equity_curves_stra
+t2.pdf>] [15
 
 ]
+<../PDFs/Regentfund_Equity_Curve.png, id=323, 1003.8303pt x 570.933pt>
+File: ../PDFs/Regentfund_Equity_Curve.png Graphic file (type png)
+<use ../PDFs/Regentfund_Equity_Curve.png>
+Package pdftex.def Info: ../PDFs/Regentfund_Equity_Curve.png  used on input lin
+e 388.
+(pdftex.def)             Requested size: 261.14908pt x 148.52618pt.
+ [16
+
+ <C:/Users/nimas/Regentfund Repository/fixed-income/PDFs/Regentfund_Equity_Curv
+e.png>]
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-384.
+429.
 
 (C:\Users\nimas\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmss.fd
 File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-[15
+[17
 
-]
-<../PDFs/fig_equity_curves_strat2.pdf, id=243, 1726.84589pt x 715.5704pt>
-File: ../PDFs/fig_equity_curves_strat2.pdf Graphic file (type pdf)
-<use ../PDFs/fig_equity_curves_strat2.pdf>
-Package pdftex.def Info: ../PDFs/fig_equity_curves_strat2.pdf  used on input li
-ne 395.
-(pdftex.def)             Requested size: 326.43303pt x 135.26099pt.
- [16
-
- <../PDFs/fig_equity_curves_strat2.pdf>] [17
+] [18
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 418.
+(hyperref)                removing `\translate ' on input line 453.
 
-[18
+[19
 
-] [19
-
-]
-\openout4 = `Research_Presentation.vrb'.
-
- (Research_Presentation.vrb) [20
+] [20
 
 ]
 \openout4 = `Research_Presentation.vrb'.
 
- (Research_Presentation.vrb) [21
+
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.vrb) [21
 
 ]
-[22
+\openout4 = `Research_Presentation.vrb'.
+
+
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.vrb) [22
+
+] [23
 
 ]
-Overfull \vbox (3.75433pt too high) detected at line 569
+Overfull \vbox (3.75433pt too high) detected at line 604
  []
 
-[23
+[24
 
-] [24
+] [25
 
 ]
 \tf@nav=\write6
@@ -1186,7 +1212,9 @@ Overfull \vbox (3.75433pt too high) detected at line 569
 \tf@snm=\write8
 \openout8 = `Research_Presentation.snm'.
 
- (Research_Presentation.aux)
+
+(C:\Users\nimas\Regentfund Repository\fixed-income\documentation\Research_Prese
+ntation.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1195,13 +1223,13 @@ Package rerunfilecheck Info: File `Research_Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: E3C18661A11D772704668F89A30FDFBA;902.
  ) 
 Here is how much of TeX's memory you used:
- 25233 strings out of 474486
- 506687 string characters out of 5743754
+ 25244 strings out of 474486
+ 507835 string characters out of 5743754
  1942542 words of memory out of 5000000
- 46935 multiletter control sequences out of 15000+600000
+ 46942 multiletter control sequences out of 15000+600000
  567958 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,501b,638s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,123p,462b,638s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\nimas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcsx
 1000.pk><C:/Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmex10.pfb><C:/Users/nimas/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1221,9 +1249,10 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmssi9.pfb><C:/Users/nimas/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nimas/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/nim
 as/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on Research_Presentation.pdf (24 pages, 837349 bytes).
+Output written on "C:\Users\nimas\Regentfund Repository\fixed-income\documentat
+ion\Research_Presentation.pdf" (25 pages, 954579 bytes).
 PDF statistics:
- 480 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
