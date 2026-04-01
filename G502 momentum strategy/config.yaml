@@ -1,0 +1,54 @@
+# G502 Multi-Horizon Momentum Strategy Configuration
+# ==================================================
+
+data:
+  # Path to G502 price data CSV
+  csv_path: "../Data Files/G5O2.csv"
+  # Column names in CSV
+  date_column: "Date"
+  price_column: "G5O2"
+  # Date format in CSV (YYYYMMDD)
+  date_format: "%Y%m%d"
+  # Maximum forward fill days for stale prices (0 = no fill)
+  max_ffill_days: 1
+
+signals:
+  # Lookback periods for momentum calculation (in trading days)
+  lookback_periods: [10, 20, 60, 90, 120, 240]
+  # Skip period to avoid look-ahead bias (typically 1 day)
+  skip_days: 1
+
+optimizer:
+  # Optimization method: 'sharpe', 'mvo', or 'equal'
+  method: "sharpe"
+  # In-sample window for optimization (trading days)
+  in_sample_window: 504
+  # Refit frequency (trading days)
+  refit_frequency: 63
+  # Risk aversion parameter for MVO (lambda)
+  risk_aversion: 1.0
+  # Minimum weight constraint
+  min_weight: 0.0
+  # Whether to use Ledoit-Wolf shrinkage for covariance (MVO only)
+  use_ledoit_wolf: true
+
+strategy:
+  # Composite signal threshold for taking long position
+  # Position = 1 if composite_signal > threshold, else 0
+  threshold: 0.5
+  # Transaction cost in basis points (applied on position changes)
+  transaction_cost_bps: 5
+  # Execution lag (days) - enforces no look-ahead
+  execution_lag: 1
+
+metrics:
+  # Annualization factor (trading days per year)
+  trading_days_per_year: 252
+  # Rolling window for Sharpe calculation (days)
+  rolling_sharpe_window: 63
+
+outputs:
+  # Output directory for charts and reports
+  output_dir: "outputs"
+  # Report filename
+  report_filename: "momentum_tearsheet.pdf"
